@@ -35,7 +35,7 @@ export default function ARPage() {
             <a-scene embedded arjs>
                 <a-marker preset="hiro">
                     <a-entity
-                        gltf-model="#venus"
+                        gltf-model="/object/marker-based/venus.glb"
                         scale="0.5 0.5 0.5"
                         position="0 0.5 0"
                     ></a-entity>

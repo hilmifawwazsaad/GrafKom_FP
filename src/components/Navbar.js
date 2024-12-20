@@ -15,37 +15,32 @@ const Navbar = ({ children }) => {
     ];
 
     return (
-        <html lang="en">
-            <body>
-                <div className="flex flex-col px-24 min-h-screen bg-[var(--background)] text-[var(--foreground)]">
-                    {/* Navbar */}
-                    <header className="py-4 shadow-md flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
-                            <img
-                                src="/ARG.png"
-                                alt="Profile"
-                                className="w-12 h-12 object-contain"
-                            />
-                        </div>
-                        <nav className="flex space-x-6">
-                            {navItems.map((item) => (
-                                <button
-                                    key={item.id}
-                                    onClick={() => router.push(item.route)}
-                                    className={`flex items-center hover:text-[#708090] transition-colors duration-150 ease-in-out ${pathname === item.route ? 'text-[#FF5A5F] font-medium' : ''
-                                        }`}
-                                >
-                                    <span className="ml-2">{item.label}</span>
-                                </button>
-                            ))}
-                        </nav>
-                    </header>
-
-                    {/* Main Content */}
-                    <main className="min-h-screen">{children}</main>
+        <div className="flex flex-col px-24 min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+            <div className="py-4 shadow-md flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                    <img
+                        src="/ARG.png"
+                        alt="Profile"
+                        className="w-12 h-12 object-contain"
+                    />
                 </div>
-            </body>
-        </html>
+                <nav className="flex space-x-6">
+                    {navItems.map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => router.push(item.route)}
+                            className={`flex items-center hover:text-[#708090] transition-colors duration-150 ease-in-out ${pathname === item.route ? 'text-[#FF5A5F] font-medium' : ''
+                                }`}
+                        >
+                            <span className="ml-2">{item.label}</span>
+                        </button>
+                    ))}
+                </nav>
+            </div>
+
+            {/* Main Content */}
+            <main className="min-h-screen">{children}</main>
+        </div>
     );
 };
 

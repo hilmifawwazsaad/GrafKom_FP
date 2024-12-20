@@ -5,19 +5,19 @@ import { useRouter } from "next/navigation";
 import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
-    // const router = useRouter();
+    const router = useRouter();
 
-    // const handleExplore = () => {
-    //     router.push('/explore');
-    // }
+    const handleExplore = () => {
+        router.push('/explore');
+    }
 
-    // useEffect(() => {
-    //     document.body.style.overflow = "hidden";
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
 
-    //     return () => {
-    //         document.body.style.overflow = "";
-    //     };
-    // }, []);
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, []);
 
     return (
         <Navbar>
@@ -25,7 +25,7 @@ export default function Dashboard() {
                 <h1 className="text-4xl md:text-6xl font-bold mb-8">Explore Your Solar System</h1>
                 <button
                     className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-md text-lg transition-all"
-                    // onClick={handleExplore}
+                    onClick={handleExplore}
                 >
                     Explore Now
                 </button>
