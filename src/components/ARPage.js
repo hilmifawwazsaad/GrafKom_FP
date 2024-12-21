@@ -1,43 +1,31 @@
-// components/ARPage.js
-
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 export default function ARPage() {
-    // const [isClient, setIsClient] = useState(false);
+    useEffect(() => {
+        const scene = document.querySelector('a-scene');
+        if (scene) {
+            scene.addEventListener('loaded', () => {
+                scene.enterVR();
+            });
 
-    // useEffect(() => {
-    //     setIsClient(true);
-
-    //     const script1 = document.createElement('script');
-    //     script1.src = 'https://aframe.io/releases/1.3.0/aframe.min.js';
-    //     script1.async = true;
-    //     document.body.appendChild(script1);
-
-    //     const script2 = document.createElement('script');
-    //     script2.src = 'https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js';
-    //     script2.async = true;
-    //     document.body.appendChild(script2);
-
-    //     return () => {
-    //         document.body.removeChild(script1);
-    //         document.body.removeChild(script2);
-    //     };
-    // }, []);
-
-    // if (!isClient) {
-    //     return <p>Loading AR experience...</p>;
-    // }
+            scene.addEventListener('exit-vr', () => {
+                window.location.href = '/';
+            });
+        }
+    }, []);
 
     return (
         <div className="overflow-hidden">
             <a-scene embedded arjs>
-                <a-marker preset="hiro">
+                <a-marker preset="hiro">;
                     <a-entity
                         gltf-model="/object/marker-based/venus.glb"
                         scale="0.5 0.5 0.5"
                         position="0 0.5 0"
+                        rotation="0 45 0"
+                        animation="property: rotation; to: 0 405 0; loop: true; dur: 10000"
                     ></a-entity>
                     {/* <a-box position="0 0.5 0" material="color: blue;"></a-box> */}
                 </a-marker>

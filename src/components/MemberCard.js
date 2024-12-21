@@ -15,7 +15,7 @@ const MemberCard = ({ imageSrc, name, nrp }) => {
             </div>
             {/* Name and Phone */}
             <div className="relative mt-2 mb-4 px-4">
-                <div className="bg-blue-400 text-white py-2 px-4 rounded-lg inline-block shadow-lg">
+                <div className="bg-[#FF5A5F] text-white py-2 px-4 rounded-lg inline-block shadow-lg">
                     <p className="text-sm font-semibold">
                         {name} - {nrp}
                     </p>
