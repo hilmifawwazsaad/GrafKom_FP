@@ -57,7 +57,7 @@ export default function MarkerPage() {
                     <a-entity
                         gltf-model="/object/marker-based/uranus.glb"
                         scale="0.2 0.2 0.2"
-                        position="0 0 0"
+                        position="-3 -3 -3"
                         rotation="0 45 0"
                         animation="property: rotation; to: 0 405 0; loop: true; dur: 10000"
                     ></a-entity>

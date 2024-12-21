@@ -15,6 +15,10 @@ export default function Dashboard() {
         router.push('/marker');
     }
 
+    const handleTracking = () => {
+        router.push('/tracking');
+    }
+
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
@@ -27,7 +31,7 @@ export default function Dashboard() {
         <Navbar>
             <div className="flex flex-col items-center justify-center min-h-screen text-white">
                 <h1 className="text-4xl md:text-6xl font-bold mb-8">Explore Your Solar System</h1>
-                <div className="flex space-x-4">
+                <div className="flex space-x-8">
                     <button
                         className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
                         onClick={handleExplore}
@@ -38,7 +42,13 @@ export default function Dashboard() {
                         className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
                         onClick={handleMarker}
                     >
-                        AR Views
+                        AR - Marker
+                    </button>
+                    <button
+                        className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
+                        onClick={handleTracking}
+                    >
+                        AR - tracking
                     </button>
                 </div>
             </div>
