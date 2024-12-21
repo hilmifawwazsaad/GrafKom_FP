@@ -29,9 +29,14 @@ export default function About() {
             Now, all things can be real!
           </h3>
           <p className="text-lg text-center">
-            Our team consist of capable and amazing people. We are well
-            organized, prepared, and consistent. Under Hilmi, leadership we are
-            ready to make your imagination into reality
+            ARG is an experience of a digital world that is superimposed on the
+            real world. Using augmented reality technology, we simulate the
+            essence of our solar system. ARG make it so that user can use their
+            personal device to observe planets in our solar system in a form of 3D
+            models. ARG are made by group 3 of Computer Graphic D, Surabaya
+            Institute of Technology. Our team consist of capable and amazing
+            people. We are well organized, prepared, and consistent. Under
+            Hilmi, leadership we are ready to make your imagination into reality
           </p>
         </div>
         <div className="w-full mx-auto flex flex-col gap-y-10 justify-center items-center">
