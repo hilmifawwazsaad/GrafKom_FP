@@ -8,7 +8,7 @@ export default function Venus() {
         <Suspense fallback={null}>
             <PlanetModel
                 modelPath="/object/marker-based/saturnus.glb"
-                scale={[1.8, 1.8, 1.8]}
+                scale={[0.7, 0.7, 0.7]}
                 rotation={[0.4, -1, 0]}
                 position={[0, 0, 0]}
                 rotationSpeed={0.007}

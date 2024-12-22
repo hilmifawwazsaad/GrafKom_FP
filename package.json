@@ -11,7 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.88.7",
     "@react-three/fiber": "^8.15.11",
-    "ar-fp": "file:",
+    "@zappar/zappar-aframe": "^2.2.4",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
