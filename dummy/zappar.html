@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src=node_modules/@zappar/zappar-aframe/dist/zappar-aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <a-scene id="scene1">
+        <a-entity camera zappar-camera >
+        <a-entity zappar-instant="placement-mode:true;" id="instant-tracker">
+            <a-box id=box1 color="red" rotation="0 0 0" ></a-box>
+        </a-entity>
+        </a-entity>
+    </a-scene>
+    <script>
+        var box = document.getElementById("#scene1");
+        scene.addEventListener('click', function () {
+            var tracker = document.getElementById("#instant-tracker");
+            tracker.setAttribute('zappar-instant', 'placement-mode:false');
+            console.log('Scene loaded');
+        });
+    </script>
+</body>
+</html>
