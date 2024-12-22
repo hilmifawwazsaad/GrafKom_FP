@@ -7,7 +7,7 @@ const VideoBackground = ({ videoSrc, children }) => {
     <div className="relative w-full h-full">
       {/* Video Background */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
+        className="absolute top-0 left-0 w-full h-full object-cover"
         src={videoSrc}
         autoPlay
         loop

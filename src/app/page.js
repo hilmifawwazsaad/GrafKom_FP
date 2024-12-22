@@ -57,7 +57,7 @@ export default function Dashboard() {
 
   return (
     <Navbar>
-      <VideoBackground videoSrc="/video/stars.mp4">
+      <VideoBackground videoSrc="video/stars.mp4" type="video/mp4" loop>
         <div className="flex flex-col items-center justify-center min-h-screen text-white">
           <h1 className="text-4xl md:text-6xl font-bold mb-8">
             Explore Your Solar System
