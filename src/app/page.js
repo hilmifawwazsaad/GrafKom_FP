@@ -108,7 +108,7 @@ export default function Dashboard() {
                             • A stable internet connection<br />
                             • Adequate system resources for 3D rendering<br />
                             • A webcam for AR experiences<br />
-                            • For now, the website isn't responsive🙏
+                            • For now, the website is not responsive and still has many flaws🙏
                         </p>
                         <button
                             onClick={handleCloseModal}
@@ -139,7 +139,7 @@ export default function Dashboard() {
                         className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
                         onClick={handleTracking}
                     >
-                        AR - tracking
+                        AR - Tracking
                     </button>
                 </div>
             </div>

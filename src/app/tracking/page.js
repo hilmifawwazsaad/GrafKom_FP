@@ -69,7 +69,7 @@ export default function MarkerPage() {
             <div className="arjs-loader">
                 <div>Loading, please wait...</div>
             </div>
-            <style jsx>{`
+            <style>{`
                 .arjs-loader {
                     height: 100%;
                     width: 100%;
@@ -84,13 +84,18 @@ export default function MarkerPage() {
                     color: white;
                     font-size: 1.25em;
                 }
+                .arjs-loader div {
+                    text-align: center;
+                    font-size: 1.25em;
+                    color: white;
+            }
             `}</style>
             <a-scene
                 vr-mode-ui='enabled: false;'
-                renderer="logarithmicDepthBuffer: true; precision: medium;"
+                renderer="logarithmicDepthBuffer: true;"
                 device-orientation-permission-ui="enabled: false"
                 embedded
-                arjs='sourceType: webcam; debugUIEnabled: false;'
+                arjs='trackingMethod: Best; sourceType: webcam;debugUIEnabled: false;'
             >
                 <a-nft
                     type='nft'
@@ -102,8 +107,8 @@ export default function MarkerPage() {
                 >
                     <a-entity
                         gltf-model='/object/marker-based/venus.glb'
-                        scale="1 1 1"
-                        position="0 0 0"
+                        scale="5 5 6"
+                        position="50 150 0"
                     >
                     </a-entity>
                 </a-nft>

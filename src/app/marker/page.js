@@ -1,7 +1,7 @@
 // pages/planets.js
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavbarLogo from "@/components/NavbarLogo";
 import { useRouter } from "next/navigation";
 
@@ -19,6 +19,14 @@ const planets = [
 export default function PlanetsPage() {
     const router = useRouter();
     const [selectedPlanet, setSelectedPlanet] = useState(null);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, []);
 
     return (
         <NavbarLogo>
