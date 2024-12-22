@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
 
-export default function MarkerPage() {
+export default function TrackingPage() {
     const [isClient, setIsClient] = useState(false);
     const router = useRouter();
 
@@ -69,7 +69,7 @@ export default function MarkerPage() {
             <div className="arjs-loader">
                 <div>Loading, please wait...</div>
             </div>
-            <style>{`
+            <style jsx>{`
                 .arjs-loader {
                     height: 100%;
                     width: 100%;
@@ -92,10 +92,10 @@ export default function MarkerPage() {
             `}</style>
             <a-scene
                 vr-mode-ui='enabled: false;'
-                renderer="logarithmicDepthBuffer: true;"
+                renderer="logarithmicDepthBuffer: true; precision: medium;"
                 device-orientation-permission-ui="enabled: false"
                 embedded
-                arjs='trackingMethod: Best; sourceType: webcam;debugUIEnabled: false;'
+                arjs='sourceType: webcam; debugUIEnabled: true;'
             >
                 <a-nft
                     type='nft'
@@ -107,8 +107,8 @@ export default function MarkerPage() {
                 >
                     <a-entity
                         gltf-model='/object/marker-based/venus.glb'
-                        scale="5 5 6"
-                        position="50 150 0"
+                        scale="1 1 1"
+                        position="0 0 0"
                     >
                     </a-entity>
                 </a-nft>
