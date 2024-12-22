@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 
 export default function Dashboard() {
     const router = useRouter();
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     const checkIfMobile = () => {
@@ -35,11 +35,21 @@ export default function Dashboard() {
         window.location.href = "https://google.com";
     }
 
+    const handleCloseModal = () => {
+        setShowModal(false);
+        sessionStorage.setItem('hasSeenWelcomeModal', 'true');
+    }
+
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
         const mobileCheck = checkIfMobile();
         setIsMobile(mobileCheck);
+
+        if (!mobileCheck) {
+            const hasSeenModal = sessionStorage.getItem('hasSeenWelcomeModal');
+            setShowModal(!hasSeenModal); 
+        }
 
         const handleResize = () => {
             const mobileCheck = checkIfMobile();
@@ -67,7 +77,7 @@ export default function Dashboard() {
                         Desktop Only Website
                     </h2>
                     <p className="text-gray-300 mb-6">
-                        This website requires a desktop or laptop computer to function properly. 
+                        This website requires a desktop or laptop computer to function properly.
                         Mobile devices, including tablets, are not supported.
                     </p>
                     <button
@@ -91,18 +101,17 @@ export default function Dashboard() {
                             Welcome to Solar System Explorer
                         </h2>
                         <p className="text-gray-300 mb-6">
-                            Explore the wonders of our solar system in 3D and AR. 
+                            Explore the wonders of our solar system in 3D and AR.
                             For the best experience, please ensure you have:
-                            <br/><br/>
-                            • Use Dark Mode System (Required) <br/>
-                            • A stable internet connection<br/>
-                            • Adequate system resources for 3D rendering<br/>
-                            • A webcam for AR experiences<br/>
+                            <br /><br />
+                            • Use Dark Mode System (Required)<br />
+                            • A stable internet connection<br />
+                            • Adequate system resources for 3D rendering<br />
+                            • A webcam for AR experiences<br />
                             • For now, the website isn't responsive🙏
-
                         </p>
                         <button
-                            onClick={() => setShowModal(false)}
+                            onClick={handleCloseModal}
                             className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-2 px-4 rounded-md transition-all w-full"
                         >
                             Continue to Site
