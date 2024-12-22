@@ -45,6 +45,11 @@ const AugmentedReality = () => {
         alt="Augmented Reality Preview"
         className="w-full rounded-lg mt-4"
       />
+      <img
+        src="/fatihar.jpg"
+        alt="Augmented Reality Preview"
+        className="w-full rounded-lg mt-4"
+      />
     </div>
   );
 };
@@ -59,6 +64,11 @@ const PlanetSimulation = () => {
       </p>
       <img
         src="/museum.jpg"
+        alt="Planet Simulation Museum"
+        className="w-full rounded-lg mt-4"
+      />
+      <img
+        src="/explore.jpg"
         alt="Planet Simulation Museum"
         className="w-full rounded-lg mt-4"
       />
