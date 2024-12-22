@@ -87,22 +87,16 @@ export default function ExplorePage() {
 
                     <div className="flex justify-center space-x-4">
                         <button
-                            className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition-all"
+                            className="text-gray-500 hover:text-gray-700 font-semibold py-2 px-4 transition-all"
                             onClick={handleBack}
                         >
-                            Back
+                            &lt; Back
                         </button>
                         <button
-                            className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition-all"
-                            onClick={handleExplore}
-                        >
-                            Explore
-                        </button>
-                        <button
-                            className="bg-gray-500 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition-all"
+                            className="text-gray-500 hover:text-gray-700 font-semibold py-2 px-4 transition-all"
                             onClick={handleNext}
                         >
-                            Next
+                            Next &gt;
                         </button>
                     </div>
                 </div>

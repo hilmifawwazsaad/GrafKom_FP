@@ -8,7 +8,7 @@ export default function Venus() {
         <Suspense fallback={null}>
             <PlanetModel
                 modelPath="/object/marker-based/bumi.glb"
-                scale={[1.8, 1.8, 1.8]}
+                scale={[2.3, 2.3, 2.3]}
                 rotation={[0.4, -1, 0]}
                 position={[0, 0, 0]}
                 rotationSpeed={0.007}

@@ -3,10 +3,13 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 
 export default function Dashboard() {
     const router = useRouter();
     const [showModal, setShowModal] = useState(false);
+    const [showModal3D, setShowModal3D] = useState(false);
+    const [showModalAR, setShowModalAR] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
 
     const checkIfMobile = () => {
@@ -19,16 +22,37 @@ export default function Dashboard() {
         );
     };
 
+    const handle3d = () => {
+        setShowModal3D(true);
+    }
+
+    const handleAR = () => {
+        setShowModalAR(true);
+    }
+
     const handleExplore = () => {
         router.push('/explore');
+        setShowModal3D(false);
+    }
+
+    const handleMuseum = () => {
+        router.push('/museum');
+        setShowModal3D(false);
     }
 
     const handleMarker = () => {
         router.push('/marker');
+        setShowModalAR(false);
     }
 
     const handleTracking = () => {
         router.push('/tracking');
+        setShowModalAR(false);
+    }
+
+    const handleFilter = () => {
+        window.location.href = "https://hilmifawwazsaad.github.io/GrafKom_ARG/src/arg/features/face-tracking/";
+        setShowModalAR(false);
     }
 
     const handleUnderstand = () => {
@@ -40,6 +64,14 @@ export default function Dashboard() {
         sessionStorage.setItem('hasSeenWelcomeModal', 'true');
     }
 
+    const handleCloseModal3D = () => {
+        setShowModal3D(false);
+    }
+
+    const handleCloseModalAR = () => {
+        setShowModalAR(false);
+    }
+
     useEffect(() => {
         document.body.style.overflow = "hidden";
 
@@ -48,7 +80,7 @@ export default function Dashboard() {
 
         if (!mobileCheck) {
             const hasSeenModal = sessionStorage.getItem('hasSeenWelcomeModal');
-            setShowModal(!hasSeenModal); 
+            setShowModal(!hasSeenModal);
         }
 
         const handleResize = () => {
@@ -120,28 +152,142 @@ export default function Dashboard() {
                 </div>
             )}
 
+            {showModal3D && (
+                <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+                    <div className="bg-gray-800 text-white rounded-lg p-6 max-w-md w-full">
+                        <h2 className="text-xl font-bold mb-4">
+                            Choose Your Experience
+                        </h2>
+                        <p className="text-gray-300 mb-6">
+                            Select how you would like to explore our solar system:
+                        </p>
+                        <div className="space-y-4">
+                            <button
+                                onClick={handleExplore}
+                                className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 rounded-md text-lg transition-all w-full"
+                            >
+                                Explore Planets
+                            </button>
+                            <button
+                                onClick={handleMuseum}
+                                className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 rounded-md text-lg transition-all w-full"
+                            >
+                                Visit Museum
+                            </button>
+                            <button
+                                onClick={handleCloseModal3D}
+                                className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition-all w-full"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {showModalAR && (
+                <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
+                    <div className="bg-gray-800 text-white rounded-lg p-6 max-w-md w-full">
+                        <h2 className="text-xl font-bold mb-4">
+                            Choose Your AR Experience
+                        </h2>
+                        <p className="text-gray-300 mb-6">
+                            Select how you would like to experience augmented reality:
+                        </p>
+                        <div className="space-y-4">
+                            <button
+                                onClick={handleMarker}
+                                className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 rounded-md text-lg transition-all w-full"
+                            >
+                                Marker Based AR
+                            </button>
+                            <button
+                                onClick={handleTracking}
+                                className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 rounded-md text-lg transition-all w-full"
+                            >
+                                Image Tracking AR
+                            </button>
+                            <button
+                                onClick={handleFilter}
+                                className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 rounded-md text-lg transition-all w-full"
+                            >
+                                Face Filter AR
+                            </button>
+                            <button
+                                onClick={handleCloseModalAR}
+                                className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 rounded-md transition-all w-full"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <div className="flex flex-col items-center justify-center min-h-screen text-white">
                 <h1 className="text-4xl md:text-6xl font-bold mb-8">Explore Your Solar System</h1>
-                <div className="flex space-x-8">
-                    <button
-                        className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
-                        onClick={handleExplore}
-                    >
-                        3D Views
-                    </button>
-                    <button
-                        className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
-                        onClick={handleMarker}
-                    >
-                        AR - Marker
-                    </button>
-                    <button
-                        className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
-                        onClick={handleTracking}
-                    >
-                        AR - Tracking
-                    </button>
+                <div className="text-center mb-8">
+                    <div className="flex space-x-8 mb-8">
+                        <button
+                            className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
+                            onClick={handle3d}
+                        >
+                            3D Views
+                        </button>
+                        <button
+                            className="bg-[#FF5A5F] hover:bg-[#F6657E] text-white font-semibold py-3 px-6 mb-4 rounded-md text-lg transition-all"
+                            onClick={handleAR}
+                        >
+                            AR Views
+                        </button>
+                    </div>
                 </div>
+                <div className="absolute bottom-0 left-0 right-0 py-6">
+                <div className="flex justify-center gap-x-28">
+                    <Image
+                        src="/logo/arjs.png"
+                        alt="AR.js"
+                        width={50}
+                        height={5}
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/logo/aframe.png"
+                        alt="A-Frame"
+                        width={55}
+                        height={5}
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/logo/threejs.png"
+                        alt="Three.js"
+                        width={115}
+                        height={5}
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/logo/mindar.png"
+                        alt="MindAR"
+                        width={55}
+                        height={5}
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/logo/blender.png"
+                        alt="Blender"
+                        width={125}
+                        height={5}
+                        className="object-contain"
+                    />
+                    <Image
+                        src="/logo/nextjs.png"
+                        alt="Next.js"
+                        width={105}
+                        height={5}
+                        className="object-contain"
+                    />
+                </div>
+            </div>
             </div>
         </Navbar>
     );
