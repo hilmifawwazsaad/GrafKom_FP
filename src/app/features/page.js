@@ -89,7 +89,7 @@ export default function Features() {
 
   return (
     <Navbar>
-      <div className="container mx-auto text-center py-16">
+      <div className="container mx-auto text-center">
         <h1 className="text-4xl font-bold mb-8">Features</h1>
 
         {selectedFeature === null ? (
